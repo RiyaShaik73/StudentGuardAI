@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentGuard AI - Student Registration</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            color: #f1f7ff;
+            background: linear-gradient(135deg, #061326, #07376b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 16px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 520px;
+            padding: 38px;
+            background: rgba(8, 25, 50, 0.96);
+            border: 1px solid #168fff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        h1 {
+            color: #27baff;
+            text-align: center;
+            margin-top: 0;
+            font-size: 30px;
+        }
+
+        h2 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .container > p {
+            color: #b8cce5;
+            line-height: 1.6;
+        }
+
+        label {
+            display: block;
+            margin: 20px 0 8px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #168fff;
+            border-radius: 10px;
+            background: #0c2340;
+            color: white;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input:focus, select:focus {
+            border-color: #35c4ff;
+            box-shadow: 0 0 0 3px rgba(53, 196, 255, 0.15);
+        }
+
+        select option {
+            background: #0c2340;
+            color: white;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 28px;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #168fff, #20baff);
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        #message {
+            margin-top: 18px;
+            overflow-wrap: anywhere;
+        }
+
+        a {
+            color: #35baff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 24px 20px;
+            }
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>StudentGuard AI</h1>
+        <h2>Student Registration</h2>
+        <p>Enter your details to access your student dashboard.</p>
+
+        <form id="registerForm">
+            <label for="studentName">Full Name</label>
+            <input
+                type="text"
+                id="studentName"
+                placeholder="Enter your full name"
+                required
+            >
+
+            <label for="studentId">Student ID</label>
+            <input
+                type="text"
+                id="studentId"
+                placeholder="Example: STU001"
+                required
+            >
+
+            <label for="department">Department</label>
+            <select id="department" required>
+                <option value="">Select Department</option>
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="EEE">EEE</option>
+                <option value="IT">IT</option>
+                <option value="Mechanical">Mechanical</option>
+                <option value="Civil">Civil</option>
+            </select>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <p id="message"></p>
+
+        <p>
+            Already registered?
+            <a href="student-login.html">Login here</a>
+        </p>
+    </div>
+
+    <script>
+        const form = document.getElementById("registerForm");
+        const message = document.getElementById("message");
+
+        form.addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("studentName")
+                .value.trim();
+            const id = document.getElementById("studentId")
+                .value.trim();
+            const department = document.getElementById("department")
+                .value;
+
+            message.textContent = "Checking student details...";
+
+            try {
+                const response = await fetch(
+                    "http://127.0.0.1:8000/api/students/" +
+                    encodeURIComponent(id)
+                );
+
+                if (!response.ok) {
+                    message.textContent =
+                        "Student ID not found. Please check your details.";
+                    return;
+                }
+
+                const student = await response.json();
+
+                if (
+                    (student.student_name || "").trim().toLowerCase()
+                    !== name.toLowerCase()
+                ) {
+                    message.textContent =
+                        "Name does not match the student record.";
+                    return;
+                }
+
+                if (
+                    (student.department || "").trim().toLowerCase()
+                    !== department.toLowerCase()
+                ) {
+                    message.textContent =
+                        "Department does not match the student record.";
+                    return;
+                }
+
+                sessionStorage.setItem("demoStudentId", id);
+
+                message.textContent =
+                    "Registration successful! Opening your profile...";
+
+                window.location.href = "student-profile.html";
+
+            } catch (error) {
+                message.textContent =
+                    "Cannot connect to the backend. Please start FastAPI.";
+                console.error(error);
+            }
+        });
+    </script>
+
+</body>
+</html>

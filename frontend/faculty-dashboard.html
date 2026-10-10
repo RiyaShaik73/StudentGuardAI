@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Faculty Dashboard | StudentGuard AI</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Charts library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="dashboard">
+    <div class="dashboard-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="logo">StudentGuard <span>AI</span></div>
+            <p class="sidebar-subtitle">SMART CAMPUS ANALYTICS</p>
+
+            <nav>
+                <a href="faculty-dashboard.html" class="active">▦ Overview</a>
+                <a href="#students">♙ All Students</a>
+                <a href="#academic">▤ Academic Performance</a>
+                <a href="#placement">◎ Placement Readiness</a>
+                <a href="#risk">⚠ Risk Analysis</a>
+                <a href="faculty-login.html">↪ Faculty Login</a>
+            </nav>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <h1 class="page-title">Student Success Dashboard</h1>
+                    <p class="page-subtitle">
+                        Monitor academic progress and identify students needing support.
+                    </p>
+                </div>
+
+                <div class="profile-chip">
+                    <div class="avatar">F</div>
+                    <div>
+                        <strong>Faculty Portal</strong>
+                        <p class="page-subtitle">Demo preview</p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- SUMMARY CARDS -->
+            <section class="stats-grid">
+
+                <article class="stat-card">
+                    <div class="stat-icon">♙</div>
+                    <p class="stat-label">Total Students</p>
+                    <h2 class="stat-value" id="totalStudents">100</h2>
+                    <p class="stat-description">Sample student records</p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon">▤</div>
+                    <p class="stat-label">Average Attendance</p>
+                    <h2 class="stat-value text-cyan" id="avgAttendance">--%</h2>
+                    <p class="stat-description">Across all sample students</p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon">⚠</div>
+                    <p class="stat-label">Academic Risk</p>
+                    <h2 class="stat-value text-red" id="academicRisk">--</h2>
+                    <p class="stat-description">Students flagged high risk</p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon">◎</div>
+                    <p class="stat-label">Average Placement Readiness</p>
+                    <h2 class="stat-value text-green" id="avgPlacement">--%</h2>
+                    <p class="stat-description">Readiness score average</p>
+                </article>
+
+            </section>
+
+            <!-- CHARTS -->
+            <section class="dashboard-grid" id="academic">
+
+                <article class="chart-card">
+                    <h2 class="section-title">Academic Performance</h2>
+                    <p class="page-subtitle">
+                        Average marks and attendance indicators
+                    </p>
+                    <div class="chart-container">
+                        <canvas id="academicChart"></canvas>
+                    </div>
+                </article>
+
+                <article class="chart-card" id="placement">
+                    <h2 class="section-title">Placement & Skills</h2>
+                    <p class="page-subtitle">
+                        Readiness, technical skills and engagement
+                    </p>
+                    <div class="chart-container">
+                        <canvas id="placementChart"></canvas>
+                    </div>
+                </article>
+
+                <article class="chart-card" id="risk">
+                    <h2 class="section-title">Academic Risk Analysis</h2>
+                    <p class="page-subtitle">
+                        Sample students by academic risk level
+                    </p>
+                    <div class="chart-container">
+                        <canvas id="riskChart"></canvas>
+                    </div>
+                </article>
+
+                <article class="chart-card">
+                    <h2 class="section-title">Placement Risk Analysis</h2>
+                    <p class="page-subtitle">
+                        Sample students by placement risk level
+                    </p>
+                    <div class="chart-container">
+                        <canvas id="placementriskChart"></canvas>
+                    </div>
+                </article>
+
+            </section>
+
+            
+            <!-- STUDENT SUCCESS SCORE EXPLANATION -->
+            <section class="card">
+                <h2 class="section-title">How the Student Success Score Works</h2>
+                <p class="page-subtitle">
+                    Each student's score is calculated from five indicators.
+                    These are prototype weights and have not been validated as a prediction model.
+                </p>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Indicator</th>
+                                <th>Weight</th>
+                                <th>What it tells us</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Attendance</td>
+                                <td>25%</td>
+                                <td>How regularly the student attends classes</td>
+                            </tr>
+                            <tr>
+                                <td>Assignment Completion</td>
+                                <td>15%</td>
+                                <td>How consistently assignments are completed</td>
+                            </tr>
+                            <tr>
+                                <td>Engagement</td>
+                                <td>10%</td>
+                                <td>Student participation and engagement indicators</td>
+                            </tr>
+                            <tr>
+                                <td>Technical Skills</td>
+                                <td>20%</td>
+                                <td>Current technical skill level</td>
+                            </tr>
+                            <tr>
+                                <td>Placement Readiness</td>
+                                <td>30%</td>
+                                <td>Preparedness for placement opportunities</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <!-- STUDENT TABLE -->
+            <section class="card" id="students">
+                <h2 class="section-title">Student Performance Overview</h2>
+                <p class="page-subtitle" style="margin-bottom: 18px;">
+                    This preview uses demonstration values. Live data is loaded from the project’s sample CSV through the backend API. All student records are synthetic demonstration data.
+                </p>
+
+                <div class="filters-row">
+                    <input
+                        type="search"
+                        id="studentSearch"
+                        class="search-box"
+                        placeholder="Search by student ID or name..."
+                    >
+
+                    <select id="riskFilter" class="filter-select">
+                        <option value="All">All academic risks</option>
+                        <option value="High">High risk</option>
+                        <option value="Medium">Medium risk</option>
+                        <option value="Low">Low risk</option>
+                    </select>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student ID</th>
+                                <th>Name</th>
+                                <th>Department</th>
+                                <th>Attendance</th>
+                                <th>Marks</th>
+                                <th>Academic Risk</th>
+                                <th>Success Score</th>
+                                <th>Score Explanation</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="studentTableBody">
+                            <tr>
+                                <td colspan="6">Loading demonstration data...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <footer class="footer">
+                StudentGuard AI · Smart Campus Analytics · Hackathon Prototype
+            </footer>
+
+        </main>
+    </div>
+</div>
+
+<script src="faculty.js"></script>
+</body>
+</html>
+

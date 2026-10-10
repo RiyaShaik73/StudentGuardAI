@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Login | StudentGuard AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <h1>StudentGuard AI</h1>
+            <p class="subtitle">Faculty Portal</p>
+
+            <form id="facultyLoginForm">
+                <label for="username">Faculty Username</label>
+                <input type="text" id="username"
+                       placeholder="Enter your username" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password"
+                       placeholder="Enter your password" required>
+
+                <button type="submit">Login as Faculty</button>
+                <p id="loginMessage" role="status"></p>
+            </form>
+
+            <a href="index.html">Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("facultyLoginForm")
+            .addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                const username =
+                    document.getElementById("username").value.trim();
+                const password =
+                    document.getElementById("password").value;
+                const message =
+                    document.getElementById("loginMessage");
+
+                if (username === "faculty" &&
+                    password === "demo123") {
+                    window.location.href = "faculty-dashboard.html";
+                } else {
+                    message.textContent =
+                        "Invalid username or password.";
+                }
+            });
+    </script>
+</body>
+</html>

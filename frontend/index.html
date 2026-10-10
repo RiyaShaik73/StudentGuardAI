@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentGuard AI | Smart Campus Analytics</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #f4f8ff;
+            background: #071426;
+            line-height: 1.6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 22px 8%;
+            border-bottom: 1px solid #203650;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+            color: #36c5ff;
+        }
+
+        nav a {
+            color: #dceaff;
+            text-decoration: none;
+            margin-left: 18px;
+        }
+
+        .hero {
+            min-height: 500px;
+            padding: 85px 8%;
+            display: flex;
+            align-items: center;
+            background:
+                radial-gradient(ellipse at 85% 30%, #124d81 0%, transparent 45%),
+                linear-gradient(135deg, #071426, #0a2545);
+        }
+
+        .hero-content {
+            max-width: 760px;
+        }
+
+        .tag {
+            display: inline-block;
+            color: #54d2ff;
+            border: 1px solid #2778ad;
+            background: #102d49;
+            padding: 7px 14px;
+            border-radius: 30px;
+            font-size: 13px;
+            margin-bottom: 22px;
+        }
+
+        h1 {
+            font-size: clamp(38px, 6vw, 64px);
+            line-height: 1.12;
+            margin-bottom: 22px;
+        }
+
+        h1 span {
+            color: #36c5ff;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: #c1d1e5;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 22px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .primary {
+            background: #168fff;
+            color: white;
+        }
+
+        .secondary {
+            color: white;
+            border: 1px solid #47708f;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.88;
+        }
+
+        .section {
+            padding: 65px 8%;
+        }
+
+        .section h2 {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .section-intro {
+            color: #afc1d8;
+            margin-bottom: 30px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            padding: 25px;
+            background: #0d2038;
+            border: 1px solid #203e5c;
+            border-radius: 15px;
+        }
+
+        .card .icon {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            color: #58cfff;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #bdcce0;
+        }
+
+        .access {
+            background: #0a1b30;
+        }
+
+        footer {
+            padding: 25px 8%;
+            text-align: center;
+            color: #9db0c9;
+            border-top: 1px solid #203650;
+            font-size: 14px;
+        }
+
+        @media (max-width: 750px) {
+            nav {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            nav a {
+                margin: 0 14px 0 0;
+            }
+
+            .hero {
+                padding-top: 60px;
+                padding-bottom: 60px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">🛡 StudentGuard AI</div>
+        <div>
+            <a href="student-login.html">Student Login</a>
+            <a href="student-register.html">Register</a>
+            <a href="faculty-dashboard.html">Faculty</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="tag">SMART CAMPUS ANALYTICS</div>
+
+                <h1>
+                    Protecting Student Success with
+                    <span>Intelligent Insights.</span>
+                </h1>
+
+                <p>
+                    StudentGuard AI helps educators identify academic
+                    and placement risks, understand student progress,
+                    and guide students toward better outcomes using
+                    data-driven insights.
+                </p>
+
+                <div class="actions">
+                    <a class="btn primary" href="student-login.html">
+                        Student Login →
+                    </a>
+
+                    <a class="btn secondary" href="student-register.html">
+                        Student Registration
+                    </a>
+
+                    <a class="btn secondary" href="faculty-dashboard.html">
+                        Faculty Dashboard
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>One Platform. Better Student Outcomes.</h2>
+            <p class="section-intro">
+                Turn student data into meaningful actions and support.
+            </p>
+
+            <div class="features">
+                <article class="card">
+                    <div class="icon">📊</div>
+                    <h3>Academic Monitoring</h3>
+                    <p>
+                        Review attendance, internal marks, assignment
+                        completion, and academic risk indicators.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="icon">🎯</div>
+                    <h3>Placement Readiness</h3>
+                    <p>
+                        Review placement readiness and technical skills
+                        to identify areas where students need support.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="icon">💡</div>
+                    <h3>Actionable Guidance</h3>
+                    <p>
+                        Provide students with practical recommendations
+                        to improve study habits and preparation.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section access">
+            <h2>Get Started</h2>
+            <p class="section-intro">
+                Choose the dashboard that matches your role.
+            </p>
+
+            <div class="actions">
+                <a class="btn primary" href="student-register.html">
+                    Student Registration
+                </a>
+
+                <a class="btn secondary" href="student-login.html">
+                    Student Login
+                </a>
+
+                <a class="btn secondary" href="faculty-dashboard.html">
+                    Open Faculty Dashboard
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        StudentGuard AI · Smart Campus Analytics · Hackathon Prototype
+    </footer>
+
+</body>
+</html>
+

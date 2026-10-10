@@ -1,0 +1,101 @@
+student_id,student_name,department,semester,attendance_percentage,internal_marks,assignment_completion,lms_logins_per_week,placement_readiness_score,technical_skills_score,engagement_score,academic_risk,placement_risk,intervention_status
+STU001,Demo Student 001,ECE,2,85,34,33,11,60,51,48,Medium,Medium,Monitor
+STU002,Demo Student 002,CSE,4,88,89,41,9,79,24,23,Low,High,Priority review
+STU003,Demo Student 003,ECE,8,59,84,33,8,50,89,73,High,Low,Priority review
+STU004,Demo Student 004,EEE,3,82,55,30,12,45,74,63,Medium,Medium,Monitor
+STU005,Demo Student 005,EEE,5,58,63,43,1,73,32,65,High,Medium,Priority review
+STU006,Demo Student 006,Mechanical,5,96,25,88,8,40,68,30,Low,Medium,Monitor
+STU007,Demo Student 007,Civil,4,98,100,76,9,49,28,25,Low,High,Priority review
+STU008,Demo Student 008,EEE,8,94,57,40,13,54,32,68,Medium,Medium,Monitor
+STU009,Demo Student 009,Civil,2,85,66,50,5,70,46,54,Medium,Medium,Monitor
+STU010,Demo Student 010,IT,5,83,41,98,11,56,40,79,Low,Medium,Monitor
+STU011,Demo Student 011,CSE,6,85,91,58,10,66,27,49,Low,Medium,Monitor
+STU012,Demo Student 012,Civil,8,70,54,38,3,97,60,47,Medium,Low,Monitor
+STU013,Demo Student 013,Mechanical,5,70,78,48,4,42,51,91,Medium,Medium,Monitor
+STU014,Demo Student 014,ECE,3,92,94,84,14,99,71,66,Low,Low,On track
+STU015,Demo Student 015,Civil,3,77,83,41,12,31,34,39,Medium,High,Priority review
+STU016,Demo Student 016,Mechanical,5,95,74,38,6,73,96,79,Low,Low,On track
+STU017,Demo Student 017,CSE,5,80,21,44,10,93,54,63,High,Low,Priority review
+STU018,Demo Student 018,Mechanical,2,72,40,88,0,58,84,42,Medium,Medium,Monitor
+STU019,Demo Student 019,ECE,6,100,100,68,13,89,97,45,Low,Low,On track
+STU020,Demo Student 020,EEE,8,93,40,99,12,92,20,96,Low,Low,On track
+STU021,Demo Student 021,ECE,2,46,34,76,14,64,50,27,High,Medium,Priority review
+STU022,Demo Student 022,Civil,8,50,82,38,12,93,36,36,High,Medium,Priority review
+STU023,Demo Student 023,Civil,4,80,41,63,8,79,47,89,Medium,Low,Monitor
+STU024,Demo Student 024,IT,2,90,59,81,10,72,76,86,Low,Low,On track
+STU025,Demo Student 025,ECE,4,60,48,38,5,27,95,90,High,Low,Priority review
+STU026,Demo Student 026,CSE,4,45,29,37,3,33,24,62,High,High,Priority review
+STU027,Demo Student 027,IT,4,62,82,57,8,41,93,93,Medium,Low,Monitor
+STU028,Demo Student 028,EEE,7,95,80,82,3,37,32,75,Low,Medium,Monitor
+STU029,Demo Student 029,Civil,6,71,79,36,10,37,27,71,Medium,Medium,Monitor
+STU030,Demo Student 030,ECE,7,96,33,61,3,49,88,77,Medium,Low,Monitor
+STU031,Demo Student 031,CSE,1,56,55,89,3,34,76,90,High,Medium,Priority review
+STU032,Demo Student 032,IT,8,86,89,31,1,55,41,72,Low,Medium,Monitor
+STU033,Demo Student 033,EEE,8,58,71,37,2,73,20,69,High,Medium,Priority review
+STU034,Demo Student 034,CSE,1,63,74,92,2,49,57,47,Medium,Medium,Monitor
+STU035,Demo Student 035,Mechanical,3,92,60,37,0,99,81,84,Medium,Low,Monitor
+STU036,Demo Student 036,CSE,4,48,85,40,13,48,28,96,High,Medium,Priority review
+STU037,Demo Student 037,IT,6,70,35,61,9,30,99,30,Medium,Medium,Monitor
+STU038,Demo Student 038,Civil,5,61,46,70,3,58,70,36,Medium,Medium,Monitor
+STU039,Demo Student 039,CSE,2,74,60,39,0,83,99,92,Medium,Low,Monitor
+STU040,Demo Student 040,ECE,6,79,47,94,4,41,64,28,Low,High,Priority review
+STU041,Demo Student 041,Civil,1,63,40,86,13,94,58,98,Medium,Low,Monitor
+STU042,Demo Student 042,CSE,2,87,90,68,14,38,37,53,Low,High,Priority review
+STU043,Demo Student 043,Civil,6,92,90,49,4,61,97,46,Low,Low,On track
+STU044,Demo Student 044,Civil,7,58,53,94,7,57,26,31,High,High,Priority review
+STU045,Demo Student 045,ECE,8,98,55,35,0,67,36,53,Medium,Medium,Monitor
+STU046,Demo Student 046,CSE,6,80,74,31,1,34,39,89,Medium,Medium,Monitor
+STU047,Demo Student 047,EEE,1,82,90,48,6,41,25,59,Low,High,Priority review
+STU048,Demo Student 048,IT,3,67,46,61,10,38,65,91,Medium,Medium,Monitor
+STU049,Demo Student 049,Civil,6,60,40,52,14,77,23,42,Medium,Medium,Monitor
+STU050,Demo Student 050,CSE,8,95,72,61,4,45,33,68,Low,Medium,Monitor
+STU051,Demo Student 051,CSE,4,59,45,88,5,64,49,48,High,Medium,Priority review
+STU052,Demo Student 052,Civil,7,70,62,65,13,33,55,64,Medium,Medium,Monitor
+STU053,Demo Student 053,Mechanical,5,88,88,72,0,39,53,42,Low,High,Priority review
+STU054,Demo Student 054,Mechanical,2,47,33,85,5,65,75,97,High,Low,Priority review
+STU055,Demo Student 055,Mechanical,4,69,93,54,4,30,75,20,Medium,High,Priority review
+STU056,Demo Student 056,Civil,2,68,75,38,10,67,99,60,Medium,Low,Monitor
+STU057,Demo Student 057,Civil,5,91,58,94,4,77,61,71,Low,Low,On track
+STU058,Demo Student 058,Mechanical,5,80,36,54,6,73,42,98,Medium,Low,Monitor
+STU059,Demo Student 059,Mechanical,6,70,90,30,4,61,46,75,Medium,Medium,Monitor
+STU060,Demo Student 060,Civil,3,74,76,86,10,52,85,80,Medium,Low,Monitor
+STU061,Demo Student 061,Civil,5,87,30,66,8,67,31,50,Medium,Medium,Monitor
+STU062,Demo Student 062,Mechanical,2,59,45,48,0,30,51,80,High,Medium,Priority review
+STU063,Demo Student 063,ECE,3,74,73,54,11,74,83,71,Medium,Low,Monitor
+STU064,Demo Student 064,Civil,8,86,20,43,12,79,48,42,High,Medium,Priority review
+STU065,Demo Student 065,IT,6,48,91,61,14,40,78,37,High,Medium,Priority review
+STU066,Demo Student 066,Civil,8,93,76,94,6,95,77,40,Low,Low,On track
+STU067,Demo Student 067,Civil,4,73,53,61,13,60,86,82,Medium,Low,Monitor
+STU068,Demo Student 068,EEE,6,62,76,39,11,61,50,54,Medium,Medium,Monitor
+STU069,Demo Student 069,Civil,4,79,30,47,2,54,69,39,Medium,Medium,Monitor
+STU070,Demo Student 070,CSE,4,49,73,82,5,94,79,73,High,Low,Priority review
+STU071,Demo Student 071,IT,8,98,73,79,14,99,22,93,Low,Low,On track
+STU072,Demo Student 072,Civil,4,45,65,68,12,74,73,88,High,Low,Priority review
+STU073,Demo Student 073,EEE,7,76,48,64,6,87,23,69,Medium,Medium,Monitor
+STU074,Demo Student 074,CSE,7,91,41,89,14,41,99,88,Low,Low,On track
+STU075,Demo Student 075,ECE,1,82,92,33,1,79,37,79,Low,Medium,Monitor
+STU076,Demo Student 076,IT,5,61,68,71,3,83,61,63,Medium,Low,Monitor
+STU077,Demo Student 077,Civil,1,93,73,62,13,35,80,22,Low,Medium,Monitor
+STU078,Demo Student 078,ECE,1,67,48,38,12,30,23,51,Medium,High,Priority review
+STU079,Demo Student 079,ECE,8,84,39,60,2,85,34,92,Medium,Low,Monitor
+STU080,Demo Student 080,CSE,1,89,52,77,2,39,40,59,Low,Medium,Monitor
+STU081,Demo Student 081,Civil,4,64,93,78,6,50,29,95,Medium,Medium,Monitor
+STU082,Demo Student 082,Mechanical,7,51,58,45,12,97,25,64,High,Medium,Priority review
+STU083,Demo Student 083,IT,2,87,67,38,8,68,21,73,Medium,Medium,Monitor
+STU084,Demo Student 084,Civil,5,72,66,88,11,44,75,42,Medium,Medium,Monitor
+STU085,Demo Student 085,EEE,4,84,88,91,7,80,95,54,Low,Low,On track
+STU086,Demo Student 086,Mechanical,7,98,31,65,14,82,51,79,Medium,Low,Monitor
+STU087,Demo Student 087,ECE,6,66,23,93,13,66,43,82,Medium,Medium,Monitor
+STU088,Demo Student 088,Mechanical,4,96,53,73,4,60,91,21,Low,Medium,Monitor
+STU089,Demo Student 089,Civil,8,50,50,82,7,96,50,80,High,Low,Priority review
+STU090,Demo Student 090,EEE,6,73,22,41,4,53,71,51,High,Medium,Priority review
+STU091,Demo Student 091,EEE,8,75,90,97,5,79,90,62,Low,Low,On track
+STU092,Demo Student 092,CSE,3,62,59,62,3,40,44,60,Medium,Medium,Monitor
+STU093,Demo Student 093,EEE,2,57,47,91,4,100,87,96,High,Low,Priority review
+STU094,Demo Student 094,CSE,3,98,44,67,3,71,42,58,Low,Medium,Monitor
+STU095,Demo Student 095,CSE,1,62,25,36,8,62,36,82,High,Medium,Priority review
+STU096,Demo Student 096,CSE,5,81,56,90,7,81,63,43,Low,Medium,Monitor
+STU097,Demo Student 097,CSE,1,100,81,44,13,33,71,82,Low,Medium,Monitor
+STU098,Demo Student 098,IT,4,54,39,68,1,56,35,91,High,Medium,Priority review
+STU099,Demo Student 099,IT,5,94,86,78,7,81,58,95,Low,Low,On track
+STU100,Demo Student 100,ECE,5,81,99,37,9,37,46,100,Low,Medium,Monitor

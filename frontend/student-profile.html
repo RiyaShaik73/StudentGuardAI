@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | StudentGuard AI</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; padding: 24px; font-family: Arial, sans-serif;
+            background: #07111f; color: #e5eefc;
+        }
+        main { max-width: 1000px; margin: auto; }
+        header {
+            display: flex; justify-content: space-between;
+            align-items: center; flex-wrap: wrap; gap: 12px;
+        }
+        .brand { color: #38bdf8; font-weight: bold; }
+        a { color: #38bdf8; }
+        .panel {
+            background: #101e30; border: 1px solid #243b55;
+            border-radius: 14px; padding: 22px; margin-top: 20px;
+        }
+        .grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 14px; margin-top: 20px;
+        }
+        .metric {
+            background: #14263b; padding: 18px; border-radius: 10px;
+        }
+        .metric span { color: #9fb1c8; font-size: 14px; }
+        .metric h2 { margin-bottom: 0; color: #38bdf8; }
+        p { color: #b5c4d8; line-height: 1.6; }
+        button {
+            padding: 10px 16px; border: 0; border-radius: 8px;
+            background: #38bdf8; font-weight: bold; cursor: pointer;
+        }
+        #message { overflow-wrap: anywhere; }
+    </style>
+</head>
+<body>
+<main>
+    <header>
+        <div>
+            <div class="brand">✦ STUDENTGUARD AI</div>
+            <h1>My Student Profile</h1>
+        </div>
+        <button id="logoutButton">Back to Login</button>
+    </header>
+
+    <section class="panel">
+        <h2 id="studentName">Loading student...</h2>
+        <p id="studentInfo">Fetching your student record.</p>
+        <p id="message" role="status"></p>
+
+        <div class="grid">
+            
+            <div class="metric">
+                <span>Student Success Score</span>
+                <h2 id="successScore">—/100</h2>
+            </div>
+            <div class="metric">
+                <span>Attendance</span>
+                <h2 id="attendance">—</h2>
+            </div>
+            <div class="metric">
+                <span>Internal Marks</span>
+                <h2 id="marks">—</h2>
+            </div>
+            <div class="metric">
+                <span>Assignment Completion</span>
+                <h2 id="assignments">—</h2>
+            </div>
+            <div class="metric">
+                <span>Placement Readiness</span>
+                <h2 id="readiness">—</h2>
+            </div>
+            <div class="metric">
+                <span>Technical Skills</span>
+                <h2 id="skills">—</h2>
+            </div>
+            <div class="metric">
+                <span>Academic Risk</span>
+                <h2 id="academicRisk">—</h2>
+            </div>
+            <div class="metric">
+                <span>Placement Risk</span>
+                <h2 id="placementRisk">—</h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>Recommended Next Steps</h2>
+        <p id="recommendation">Recommendations will appear here.</p>
+    </section>
+
+    <p><a href="faculty-dashboard.html">Faculty Dashboard</a></p>
+</main>
+
+<script>
+    const studentId = sessionStorage.getItem("demoStudentId");
+    const message = document.getElementById("message");
+
+    document.getElementById("logoutButton").addEventListener("click", () => {
+        sessionStorage.removeItem("demoStudentId");
+        window.location.href = "student-login.html";
+    });
+
+    async function loadProfile() {
+        
+        if (!studentId) {
+            document.getElementById("studentName").textContent =
+            "No student selected";
+            document.getElementById("studentInfo").textContent =
+            "Please return to login and enter a valid Student ID.";
+            message.textContent =
+            "No student ID was saved. Open student-login.html and try again.";
+            return;
+        }
+
+        try {
+            const response = await fetch(
+                "http://127.0.0.1:8000/api/students/" +
+                encodeURIComponent(studentId)
+            );
+
+            if (!response.ok) {
+                message.textContent = "Student record not found. Please log in again.";
+                return;
+            }
+
+            const s = await response.json();
+            const value = (key) => s[key] ?? "N/A";
+
+            document.getElementById("studentName").textContent =
+                value("student_name");
+            document.getElementById("studentInfo").textContent =
+                "ID: " + value("student_id") + " | Department: " +
+                value("department") + " | Semester: " + value("semester");
+
+            document.getElementById("attendance").textContent =
+                value("attendance_percentage") + "%";
+            document.getElementById("marks").textContent =
+                value("internal_marks");
+            document.getElementById("assignments").textContent =
+                value("assignment_completion") + "%";
+            document.getElementById("readiness").textContent =
+                value("placement_readiness_score") + "/100";
+            document.getElementById("skills").textContent =
+                value("technical_skills_score") + "/100";
+            document.getElementById("successScore").textContent =
+                value("student_success_score") + "/100";
+            document.getElementById("academicRisk").textContent =
+                value("academic_risk");
+            document.getElementById("placementRisk").textContent =
+                value("placement_risk");
+
+                
+                const academicRisk = String(s.academic_risk || "").trim().toLowerCase();
+                const placementRisk = String(s.placement_risk || "").trim().toLowerCase();
+
+                const attendance = Number(s.attendance_percentage) || 0;
+                const marks = Number(s.internal_marks) || 0;
+                const assignments = Number(s.assignment_completion) || 0;
+                const readiness = Number(s.placement_readiness_score) || 0;
+                const skills = Number(s.technical_skills_score) || 0;
+
+                const tips = [];
+
+                if (academicRisk === "high" || attendance < 75 || marks < 40) {
+                    tips.push(
+                        "HIGH PRIORITY: Meet your faculty advisor and create a weekly academic improvement plan."
+                    );
+                }
+
+                if (attendance < 75) {
+                    tips.push(
+                        "ATTENDANCE: Attend classes regularly and aim to meet your institution's attendance requirement."
+                    );
+                }
+
+                if (marks < 50) {
+                    tips.push(
+                        "ACADEMICS: Spend 30 minutes daily revising difficult subjects and solving practice questions."
+                    );
+                }
+
+                if (assignments < 75) {
+                    tips.push(
+                        "ASSIGNMENTS: List pending assignments, complete the most urgent ones first, and submit them before deadlines."
+                    );
+                }
+
+                if (readiness < 60 || placementRisk === "high") {
+                    tips.push(
+                        "PLACEMENT: Practise aptitude questions, prepare your resume, and complete mock interviews every week."
+                    );
+                }
+
+                if (skills < 60) {
+                    tips.push(
+                        "TECHNICAL SKILLS: Choose one relevant technical skill and build a small practical project to strengthen it."
+                    );
+                }
+
+                if (tips.length === 0) {
+                    tips.push(
+                        "GOOD PROGRESS: Keep attending classes, submit assignments on time, and continue developing your technical and placement skills."
+                    );
+                }
+
+                document.getElementById("recommendation").textContent = tips.join(" ");
+                
+
+        } catch (error) {
+            message.textContent =
+                "Could not connect to the backend. Check that FastAPI is running.";
+        }
+    }
+
+    loadProfile();
+</script>
+</body>
+</html>
